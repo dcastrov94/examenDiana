@@ -1,0 +1,19 @@
+{
+  "name": "examen_diana_castro1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "formidable": "^2.0.1",
+    "mongoose": "^6.3.1",
+    "nodemon": "^2.0.16",
+    "passport": "^0.5.2",
+    "sweetalert2": "^11.4.10"
+  }
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="CSS/registrar.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap"
+        rel="stylesheet">
+    <title>Examen Platos</title>
+    <script src="https://kit.fontawesome.com/655682710d.js" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body onload="cargarTabla()">
+
+    <!-- Logo y Menu -->
+    <div class="menu-top">
+        <a href="index.html"> INICIO</a>
+        <a href="platillos.html"> PLATILLOS</a>
+        <a href="registrar.html"> REGISTRAR PLATILLOS</a>
+    </div>
+
+    <!-- Title -->
+
+    <div class="banner">
+        <h1>
+            <i class=" icons fa-solid fa-pen-to-square fa-1x"> </i>REGISTRAR NUEVO PLATILLO
+        </h1>
+    </div>
+
+    <!-- Tabla -->
+
+    <div class="libros">
+        <div>
+            <h1>DATOS ACTUALES</h1>
+            <table class="center" id="platosAgregados">
+                <tr>
+                    <td class="tabla-titulos">ID</td>
+                    <td class="tabla-titulos">NOMBRE</td>
+                    <td class="tabla-titulos">INGREDIENTES</td>
+                    <td class="tabla-titulos">COSTO</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="agregar">
+            <button onclick="muestra()" class="button-sesion">AGREGAR NUEVO PLATILLO</button>
+        </div>
+    </div>
+
+    <!-- NUEVO PLATILLO -->
+
+    <div id="nuevo-costo" class=" oculto nuevo-platillo">
+        <!-- Título -->
+        <div class="titulo2">
+            <h1>NUEVO PLATILLO</h1>
+        </div>
+
+        <!--FORM  -->
+
+        <form action="/platos/crear" method="post" enctype="multipart/form-data" onsubmit="return validar()" class=" crear-cuenta">
+
+            <input type="text" name="nombre" id="nombre" placeholder="NOMBRE" class="inputs"> <br><br />
+
+            <input type="text" name="ingredientes" id="ingredientes" placeholder="INGREDIENTES" class="inputs"> <br><br />
+
+            <input type="text" name="costo" id="costo" placeholder="COSTO" class="inputs"> <br><br />
+
+            <input class="button-crear" type="submit" value="AGREGAR PLATILLO">
+            
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <h4>EMAIL@HOTMAIL.COM</h4>
+        <h4>+506 7777-8888</h4>
+        <p class="derechos">DERECHOS RESERVADOS</p>
+    </div>
+
+    <script>
+
+        function muestra() {
+            // Código ejecutado al hacer click sobre el botón
+            var textoOculto = document.getElementById("nuevo-costo");
+            textoOculto.classList.remove("oculto");
+        }
+
+        function cargarTabla() {
+            fetch("http://localhost:5000/platos/")
+                .then(
+                    function (response) {
+                        return response.json();
+                    }
+                )
+                .then(
+                    function (json) {
+                        for (var cont = 0; json.length > cont; cont++) {
+                            var linea = "<tr><td>" + json[cont]._id + "</td><td>" + json[cont].nombre + "</td><td>" + json[cont].ingredientes + "</td><td>" + json[cont].costo + "</td></tr>";
+                            document.getElementById("platosAgregados").insertAdjacentHTML("beforeend", linea);
+                        }
+                    }
+                )
+        }
+
+        function insertarCosto() {
+            var datos = {
+                nombre: document.getElementById("nombre").value,
+                ingredientes: document.getElementById("ingredientes").value,
+                costo: document.getElementById("costo").value
+            }
+
+            fetch("http://localhost:5000/platos/insertar", {
+                method: 'POST',
+                body: JSON.stringify(datos),
+                headers: { 'Content-Type': 'application/json' }
+            })
+                .then(
+                    function (response) {
+                        return response.json();
+                    }
+                )
+        }
+
+        function validar() {
+
+            var costo = document.getElementById("costo").value;
+
+            var regx = /^[0-9]+$/
+
+            if (document.getElementById("nombre").value == "", document.getElementById("ingredientes").value == "", document.getElementById("costo").value == "") {
+                document.getElementById("nombre").classList.add("valid");
+                document.getElementById("ingredientes").classList.add("valid");
+                document.getElementById("costo").classList.add("valid");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Por favor llene todos los campos requeridos',
+                });
+                return false
+            }
+            if (regx.test(costo), costo > 0) {
+                return true
+            }
+            else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Ingrese un número mayor a 0',
+                });
+                return false;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

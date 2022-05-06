@@ -1,0 +1,80 @@
+div{
+    box-sizing: border-box;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #1A181B;
+}
+
+h1 {
+    font-family: 'Bebas Neue';}
+
+h2 {
+    font-family: 'Bebas Neue';
+    color: #36008D;
+}
+
+h3{
+    font-family: 'Bebas Neue';
+    font-weight: 400;
+    color: #36008D;
+    text-align: left;
+    font-size: 40px;
+    margin-left: 40px;
+}
+
+.contenedor{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.logo-menu{
+    flex-basis: 20%;
+}
+
+.logo{
+    width: 75%;
+    padding-left: 5%;
+    padding-top: 3%;
+}
+
+.menu-top{
+    flex-basis: 80%;
+    padding-top: 3%;
+    padding-right: 3%;
+    text-align: center;
+    margin-top: 25%;
+}
+
+.menu-top a:nth-child(n+0):nth-child(-n+1){
+    border-right: 4px #FFF7BC solid;
+    padding-right: 2%;
+}
+
+.menu-top a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Bebas Neue';
+    font-size: 40px;
+    padding-left: 2%;
+
+}
+
+i {
+    padding-right: 8px;
+}
+
+.menu-top a:hover{
+    color: #FFF7BC;
+}
+
+.banner{
+    background-image: url("../img/menu.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 10%;
+    padding-bottom: 12%;
+}

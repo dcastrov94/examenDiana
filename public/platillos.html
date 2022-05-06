@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="CSS/platillos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap"
+        rel="stylesheet">
+    <title>Examen Platos</title>
+    <script src="https://kit.fontawesome.com/655682710d.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body onload="cargarTabla()">
+
+    <!-- Logo y Menu -->
+    <div class="menu-top">
+        <a href="index.html"> INICIO</a>
+        <a href="platillos.html"> PLATILLOS</a>
+        <a href="registrar.html"> REGISTRAR PLATILLOS</a>
+    </div>
+
+    <!-- Title -->
+
+    <div class="banner">
+        <h1>
+            <i class="fa-solid fa-utensils fa-1x"></i> PLATILLOS REGISTRADOS
+        </h1>
+    </div>
+
+    <!-- Tabla -->
+
+    <div class="platillos">
+        <div>
+            <table class="center" id="platosAgregados">
+                <tr>
+                  <td class="tabla-titulos">ID</td>
+                  <td class="tabla-titulos">NOMBRE</td>
+                  <td class="tabla-titulos">INGREDIENTES</td>
+                  <td class="tabla-titulos">COSTO</td>
+                </tr>
+              </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <h4>EMAIL@HOTMAIL.COM</h4>
+        <h4>+506 7777-8888</h4>
+        <p class="derechos">DERECHOS RESERVADOS</p>
+    </div>  
+
+    <script>
+        function cargarTabla() {
+            fetch("http://localhost:5000/platos/")
+                .then(
+                    function (response) {
+                        return response.json();
+                    }
+                )
+                .then(
+                    function (json) {
+                        for (var cont = 0; json.length > cont; cont++) {
+                            var linea = "<tr><td>"+json[cont]._id+"</td><td>"+json[cont].nombre+"</td><td>"+json[cont].ingredientes+"</td><td>"+json[cont].costo+"</td></tr>";
+                            document.getElementById("platosAgregados").insertAdjacentHTML("beforeend", linea);
+                        }
+                    }
+                )
+        }
+
+        
+    </script>
+
+</body>
+
+</html>

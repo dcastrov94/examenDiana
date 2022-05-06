@@ -1,0 +1,227 @@
+div{
+    box-sizing: border-box;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #1A181B;
+}
+
+h1 {
+    font-family: 'Bebas Neue';
+    color: #FD5D5D;
+text-align: center;}
+
+h2 {
+    font-family: 'Bebas Neue';
+    color: #FD5D5D;
+    text-align: center;
+}
+
+h3{
+    font-family: 'Bebas Neue';
+    font-weight: 400;
+    color: #36008D;
+    text-align: left;
+    font-size: 40px;
+    margin-left: 40px;
+}
+
+.menu-top{
+    text-align: center;
+    margin-top: 2%;
+}
+
+.menu-top a:nth-child(n+0):nth-child(-n+2){
+    border-right: 4px #FFAD60 solid;
+    padding-right: 2%;
+}
+
+.menu-top a {
+    color: #FD5D5D;
+    text-decoration: none;
+    font-family: 'Bebas Neue';
+    font-size: 30px;
+    padding-left: 2%;
+
+}
+
+i {
+    padding-right: 8px;
+}
+
+.menu-top a:hover{
+    color: #FFAD60;
+}
+
+.banner{
+    background-color: #FFF7BC;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+}
+
+.libros{
+    border: #FFAD60 3px solid;
+    border-radius: 10px;
+    margin-top: 3%;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.tabla-titulos{
+    font-family: 'Bebas Neue';
+    color: #FD5D5D;
+    font-size: 20px;
+}
+
+table{
+    border: #FFAD60 2px solid;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+td {
+    font-family: 'Roboto', sans-serif;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-bottom: #FFAD60 2px solid;
+    border-right:#FFAD60 2px solid;;
+}
+
+button{
+    border: 2px solid #36008D;
+    color: #F0E100;
+    border-radius: 5px;
+    background: #36008D ;
+    font-size: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-family: 'Bebas Neue', sans-serif; 
+}
+
+.button-sesion{
+    border: 3px solid #FD5D5D;
+    color: #FFF7BC;
+    border-radius: 5px;
+    background: #FD5D5D ;
+    font-size: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: 'Bebas Neue';
+    margin-top: 20px;
+}
+
+.agregar{
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.oculto { 
+    display: none;
+  }
+
+  .visible { 
+    display: inline;
+  }
+
+.nuevo-platillo{
+    border: #FD5D5D 3px solid;
+    border-radius: 10px;
+    margin-top: 3%;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.titulo2{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.crear-cuenta{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.inputs{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 75%;
+    background-color: #F2F2F2;
+    border: 0px;
+    color: #FD5D5D;
+    text-align: center;
+}
+
+
+.text-morado{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #36008D;
+}
+
+.button-crear{
+    border: 2px solid #FD5D5D;
+    color: #FFF7BC;
+    border-radius: 5px;
+    background: #FD5D5D ;
+    font-size: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.button-crear:hover, .button-sesion:hover {
+    transform: scale(1.1);
+}
+
+.valid{
+    border: 2px solid #FD5D5D;
+    background-color: #FFF7BC;
+}
+
+.footer{
+    background-color: #F2F2F2;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer h4{
+    font-family: 'Roboto';
+    font-weight: 700;
+    color: #FD5D5D;
+    text-align: center;
+    font-size: 14px;
+    margin: 2px;
+}
+
+.derechos{
+    font-family: 'Roboto';
+    font-weight: 700;
+    color: #FFAD60;
+    text-align: center;
+    font-size: 10px;
+    margin: 15px;
+}
